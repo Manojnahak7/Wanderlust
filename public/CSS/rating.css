@@ -197,10 +197,17 @@
   transition: background-position .7s;
 }
 
+.starability-result .star-icon {
+  width: 2px; 
+  height: 2px; 
+}
 
-/* .starability-slot label {
-  margin-right: 50px;
-} */
+.starability-result {
+  display: inline-block;
+  transform: scale(0.35); 
+  transform-origin: 0 0; 
+  margin-bottom: -11px;
+}
 
 
 
