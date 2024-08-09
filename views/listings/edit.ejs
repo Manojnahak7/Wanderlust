@@ -1,0 +1,103 @@
+<% layout('/layouts/boilerplate') %>
+
+<!-- <body> -->
+<div class="row">
+  <div class="col-8 offset-2 mt-3">
+    <h1>Edit Your Listing</h1>
+    <form
+      action="/listings/<%=editList._id  %>?_method=PUT"
+      method="post"
+      class="needs-validation"
+      novalidate
+      enctype="multipart/form-data"
+    >
+      <div class="mb-3">
+        <label for="title" class="form-label">Title</label>
+        <input
+          type="text"
+          name="listingobj[title]"
+          value="<%=editList.title%>"
+          class="form-control"
+          required
+        />
+        <div class="invalid-feedback">Please Enter a Title</div>
+      </div>
+      <div class="mb-3">
+        <label for="description" class="form-label">Description</label>
+        <input
+          type="text"
+          name="listingobj[description]"
+          value="<%=editList.description%>"
+          class="form-control"
+          required
+        />
+        <div class="invalid-feedback">Please Enter a Description</div>
+      </div>
+
+      <div class="mb-3">
+        <label for="description" class="form-label">Select new category</label>
+        <select name="listingobj[category]" id="category" class="form-control">
+          <option value=""><%=editList.category %></option>
+          <option value="rooms">rooms</option>
+          <option value="mountains">mountains</option>
+          <option value="iconic cities">iconic cities</option>
+          <option value="mountain">mountain</option>
+          <option value="castles">castles</option>
+          <option value="amazing pool">amazing pool</option>
+          <option value="camping">camping</option>
+          <option value="farms">farms</option>
+          <option value="arctic">arctic</option>
+          <option value="domes">domes</option>
+          <option value="boats">boats</option>
+        </select>
+      </div>
+
+      <div class="mb-3">
+        Original listing Image <br />
+        <img src="<%=originalImageUrl %>" />
+      </div>
+      <div class="mb-3">
+        <label for="image" class="form-label">Upload new Image</label>
+        <input type="file" name="listingobj[image]" class="form-control" />
+      </div>
+      <div class="row">
+        <div class="mb-3 col-md-4">
+          <label for="price" class="form-label">Price</label>
+          <input
+            type="text"
+            name="listingobj[price]"
+            value="<%=editList.price%>"
+            class="form-control"
+            required
+          />
+          <div class="invalid-feedback">Please Enter Price</div>
+        </div>
+        <div class="mb-3 col-md-8">
+          <label for="country" class="form-label">Country</label>
+          <input
+            type="text"
+            name="listingobj[country]"
+            value="<%=editList.country%>"
+            class="form-control"
+            required
+          />
+          <div class="invalid-feedback">Please Enter a Country</div>
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="location" class="form-label">Location</label>
+        <input
+          type="text"
+          name="listingobj[location]"
+          value="<%=editList.location%>"
+          class="form-control"
+          required
+        />
+        <div class="invalid-feedback">Please Enter a Location</div>
+      </div>
+
+      <button class="btn btn-dark mb-3 edit-btn">Save</button>
+    </form>
+  </div>
+</div>
+<!-- </body> -->

@@ -1,0 +1,120 @@
+<% layout("/layouts/boilerplate") %>
+
+<body>
+  <div class="row">
+    <div class="col-8 offset-2">
+      <br /><br />
+      <h2 class="add-title">Add Your Property</h2>
+      <form
+        action="/listings"
+        method="post"
+        novalidate
+        class="needs-validation"
+        enctype="multipart/form-data"
+      >
+        <div class="mb-3">
+          <label for="title" class="form-label">Title</label>
+          <input
+            name="listingobj[title]"
+            placeholder="Enter your title"
+            class="form-control"
+            required
+          />
+          <!-- <div class="valid-feedback">Title Looks Good!</div> -->
+          <div class="invalid-feedback">Please Enter title</div>
+        </div>
+        <div class="mb-3">
+          <label for="description" class="form-label">Description</label>
+          <input
+            name="listingobj[description]"
+            placeholder="Enter your description"
+            class="form-control"
+            required
+          />
+          <!-- <div class="valid-feedback">Description Looks Good</div> -->
+          <div class="invalid-feedback">Please enter a short description</div>
+        </div>
+        <!-- <div class="mb-3">
+          <label for="image" class="form-label">Image Link</label>
+          <input
+            name="listingobj[image]"
+            placeholder="Enter image URL"
+            class="form-control"
+          />
+        </div> -->
+        <div class="mb-3">
+          <label for="description" class="form-label"
+            >Select new category</label
+          >
+          <select
+            name="listingobj[category]"
+            id="category"
+            class="form-control"
+          >
+            <option value="">Select Category</option>
+            <option value="rooms">rooms</option>
+            <option value="mountains">mountains</option>
+            <option value="iconic cities">iconic cities</option>
+            <option value="mountain">mountain</option>
+            <option value="castles">castles</option>
+            <option value="amazing pool">amazing pool</option>
+            <option value="camping">camping</option>
+            <option value="farms">farms</option>
+            <option value="arctic">arctic</option>
+            <option value="domes">domes</option>
+            <option value="boats">boats</option>
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label for="image" class="form-label">Upload Listing Image</label>
+          <input
+            name="listingobj[image]"
+            class="form-control"
+            type="file"
+            required
+          />
+        </div>
+        <div class="row">
+          <div class="mb-3 col-md-4">
+            <label for="price" class="form-label">Price</label>
+            <input
+              name="listingobj[price]"
+              placeholder="Enter price"
+              class="form-control"
+              required
+            />
+            <!-- <div class="valid-feedback">Price Looks good</div> -->
+            <div class="invalid-feedback">Please enter Price</div>
+          </div>
+          <div class="mb-3 col-md-8">
+            <label for="country" class="form-label">Country</label>
+            <input
+              name="listingobj[country]"
+              placeholder="Enter country"
+              class="form-control"
+              required
+            />
+            <!-- <div class="valid-feedback">Country Looks Good</div> -->
+            <div class="invalid-feedback">
+              Please enter correct Country name
+            </div>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="location" class="form-label">Location</label>
+          <input
+            name="listingobj[location]"
+            placeholder="Enter location"
+            class="form-control"
+            required
+          />
+          <!-- <div class="valid-feedback">Location Looks Good</div> -->
+          <div class="invalid-feedback">Please enter correct Location</div>
+        </div>
+
+        <button class="btn btn-dark mb-3 add">Add</button>
+      </form>
+    </div>
+  </div>
+</body>
