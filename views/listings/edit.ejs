@@ -39,7 +39,8 @@
         <select name="listingobj[category]" id="category" class="form-control">
           <option value="<%=editList.category %>" selected>
             <%=editList.category %>
-          </option>          <option value="rooms">rooms</option>
+          </option>          
+          <option value="rooms">rooms</option>
           <option value="mountains">mountains</option>
           <option value="iconic cities">iconic cities</option>
           <option value="mountain">mountain</option>
@@ -116,6 +117,9 @@
             name="listingobj[contactnumber]"
             value="<%=editList.contactnumber%>"
             class="form-control"
+            maxlength="10":
+            pattern="\d{10}"
+            oninput="validateContactNumber(this)"
             required
           />
           <div class="invalid-feedback">Please Enter your contact number</div>
