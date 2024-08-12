@@ -69,3 +69,19 @@ function validateContactNumber(input) {
     input.value = input.value.slice(0, 10);
   }
 }
+
+//For Navbar
+document
+  .getElementById("hamburger-icon")
+  .addEventListener("click", function () {
+    document.getElementById("menu-overlay").style.display = "flex";
+    document.getElementById("hamburger-icon").style.display = "none";
+    document.getElementById("cross-icon").style.display = "block";
+  });
+
+document.getElementById("cross-icon").addEventListener("click", function () {
+  document.getElementById("menu-overlay").style.display = "none";
+  document.getElementById("hamburger-icon").style.display = "flex";
+  document.getElementById("cross-icon").style.display = "none";
+});
+
