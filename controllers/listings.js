@@ -55,7 +55,7 @@ module.exports.showListing = async (req, res) => {
 module.exports.createListing = async (req, res, next) => {
   //Newly added
    let { contactnumber } = req.body.listingobj;
-  if (!contactnumber || contactnumber.length !== 10) {
+  if (!contactnumber || contactnumber.toString().length !== 10) {
     req.flash("error", "Contact number must be exactly 10 digits");
     return res.redirect("/listings/new");
   }
