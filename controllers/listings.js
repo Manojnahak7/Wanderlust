@@ -53,6 +53,13 @@ module.exports.showListing = async (req, res) => {
 
 // Create Route
 module.exports.createListing = async (req, res, next) => {
+  //Newly added
+   let { contactnumber } = req.body.listingobj;
+  if (!contactnumber || contactnumber.length !== 10) {
+    req.flash("error", "Contact number must be exactly 10 digits");
+    return res.redirect("/listings/new");
+  }
+  
   let url = req.file.path;
   let filename = req.file.filename;
   const newListing = new listing(req.body.listingobj);
