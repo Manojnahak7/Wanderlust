@@ -101,7 +101,7 @@
             </div>
           </div>
         </div>
-        <div class="mb-3">
+       <!-- <div class="mb-3">
           <label for="location" class="form-label">Location</label>
           <input
             name="listingobj[location]"
@@ -109,8 +109,34 @@
             class="form-control"
             required
           />
-          <!-- <div class="valid-feedback">Location Looks Good</div> -->
           <div class="invalid-feedback">Please enter correct Location</div>
+        </div> !-->
+
+ <div class="row">
+          <div class="mb-3 col-md-8">
+            <label for="location" class="form-label">Location</label>
+            <input
+              name="listingobj[location]"
+              placeholder="Enter location"
+              class="form-control"
+              required
+            />
+            <!-- <div class="valid-feedback">Location Looks Good</div> -->
+            <div class="invalid-feedback">Please enter correct Location</div>
+          </div>
+          <div class="mb-3 col-md-4">
+            <label for="contactnumber" class="form-label">Contact Number</label>
+            <input
+              name="listingobj[contactnumber]"
+              placeholder="Enter contact number"
+              class="form-control"
+              minlength="1"
+              maxlength="10"
+              required
+            />
+            <!-- <div class="valid-feedback">Location Looks Good</div> -->
+            <div class="invalid-feedback">Please enter contact number</div>
+          </div>
         </div>
 
         <button class="btn btn-dark mb-3 add">Add</button>
