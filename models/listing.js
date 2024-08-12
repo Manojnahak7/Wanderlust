@@ -43,10 +43,15 @@ const listingSchema = new Schema({
     ref: "User",
   },
   contactnumber: {
-    type: Number,
+     type: Number,
     required: true,
-    min: 1,
-    max: 10,
+    validate: {
+      validator: function (v) {
+        return /^\d{10}$/.test(v);
+      },
+      message: (props) =>
+        `${props.value} is not a valid 10-digit phone number!`,
+    },
   },
   // For filters
 
