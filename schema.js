@@ -16,7 +16,6 @@ const listingSchema = joi.object({
           "rooms",
           "mountains",
           "iconic cities",
-          "mountain",
           "castles",
           "amazing pool",
           "camping",
