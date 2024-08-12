@@ -27,6 +27,9 @@
           <p class="card-text"><i class="fa-solid fa-globe"></i>&nbsp; <%=showall.country %> </p>
         <p class="card-text"><i class="fa-solid fa-location-dot"></i>&nbsp; <%=showall.location %>
       </p>
+ <p class="card-text">
+            <i class="fa-solid fa-phone"></i>&nbsp; <a href="tel:<%= showall.contactnumber %>"><%= showall.contactnumber %></a>
+          </p>
       <% if(currUser && currUser._id.equals(showall.owner._id)){ %>
       
       <div class="d-flex">
