@@ -1,11 +1,6 @@
-
-
 <% layout('/layouts/boilerplate') %>
-
-
-
 <div id="filters" class="d-flex">
-  <div class="filter selected" data-filter="trending">
+  <div class="filter" data-filter="trending">
     <div><i class="fa-solid fa-fire"></i></div>
     <p>Trending</p>
   </div>
@@ -13,17 +8,14 @@
     <div><i class="fa-solid fa-bed"></i></div>
     <p>Rooms</p>
   </div>
-
   <div class="filter" data-filter="iconic-cities">
     <div><i class="fa-solid fa-mountain-city"></i></div>
     <p>Iconic Cities</p>
   </div>
-
   <div class="filter" data-filter="mountain">
     <div><i class="fa-solid fa-mountain"></i></div>
-    <p>Mountain</p>
+    <p>Mountains</p>
   </div>
-
   <div class="filter" data-filter="castles">
     <div><i class="fa-brands fa-fort-awesome"></i></div>
     <p>Castles</p>
@@ -33,7 +25,6 @@
     <div><i class="fa-solid fa-person-swimming"></i></div>
     <p>Amazing Pool</p>
   </div>
-
   <div class="filter" data-filter="camping">
     <div><i class="fa-solid fa-campground"></i></div>
     <p>Camping</p>
@@ -46,16 +37,15 @@
     <div><i class="fa-regular fa-snowflake"></i></div>
     <p>Arctic</p>
   </div>
-
   <div class="filter" data-filter="domes">
     <div><i class="fa-solid fa-igloo"></i></div>
     <p>Domes</p>
   </div>
-
   <div class="filter" data-filter="boats">
     <div><i class="fa-solid fa-sailboat"></i></div>
     <p>Boats</p>
   </div>
+
   <div class="tax-toggle">
     <div class="form-check-reverse form-switch">
       <input
@@ -64,45 +54,37 @@
         role="switch"
         id="flexSwitchCheckDefault"
       />
-      <label class="form-check-label" for="flexSwitchCheckDefault">
-        Display total after taxes
-      </label>
+      <label class="form-check-label" for="flexSwitchCheckDefault"
+        >Display total after taxes</label
+      >
     </div>
   </div>
 </div>
 
-<!-- Search results section -->
-<!-- <h2 class="text-center mt-4">Listings</h2> -->
-
-<% if (allListing.length > 0) { %>
 <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 mt-2">
-  <% allListing.forEach(listing => { %>
-  <a href="/listings/<%= listing._id %>">
-    <div class="card col listing-card">
+  <% for(let list of allListing) {%>
+  <a href="/listings/<%=list._id  %>">
+    <div class="card col listing-card" data-category="<%= list.category %>">
       <div class="card-img-overlay"></div>
+
       <img
-        src="<%= listing.image.url %>"
+        src="<%=list.image.url  %>"
         class="card-img-top"
         alt="listing_image"
         style="height: 20rem"
       />
       <div class="card-body mt-2">
-        <b><h5><%= listing.title %></h5></b>
+        <b><h5><%= list.title %></h5></b>
         <p class="card-text">
-          <% if (listing.price) { %> &#8377; <%=
-          listing.price.toLocaleString("en-IN") %>/night <% } else { %> Price
-          not available <% } %>
+          <% if (list.price) { %> &#8377; <%=list.price.toLocaleString("en-IN")
+          %>/night <% } else { %> Price not available <% } %>
           <i class="tax-info">&nbsp; &nbsp; +18% GST</i>
         </p>
       </div>
     </div>
   </a>
-  <% }) %>
+  <% } %>
 </div>
-<% } else { %>
-<p class="text-center">No results found for "<%= search %>".</p>
-<% } %>
-
 <script>
   let taxSwitch = document.getElementById("flexSwitchCheckDefault");
   taxSwitch.addEventListener("click", () => {
