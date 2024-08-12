@@ -84,7 +84,7 @@
           <div class="invalid-feedback">Please Enter a Country</div>
         </div>
       </div>
-      <div class="mb-3">
+      <!--<div class="mb-3">
         <label for="location" class="form-label">Location</label>
         <input
           type="text"
@@ -94,6 +94,31 @@
           required
         />
         <div class="invalid-feedback">Please Enter a Location</div>
+      </div> !-->
+
+ <div class="row">
+        <div class="mb-3 col-md-8">
+          <label for="location" class="form-label">Location</label>
+          <input
+            type="text"
+            name="listingobj[location]"
+            value="<%=editList.location%>"
+            class="form-control"
+            required
+          />
+          <div class="invalid-feedback">Please Enter a Location</div>
+        </div>
+        <div class="mb-3 col-md-4">
+          <label for="contactnumber" class="form-label">Contact Number</label>
+          <input
+            type="text"
+            name="listingobj[contactnumber]"
+            value="<%=editList.contactnumber%>"
+            class="form-control"
+            required
+          />
+          <div class="invalid-feedback">Please Enter your contact number</div>
+        </div>
       </div>
 
       <button class="btn btn-dark mb-3 edit-btn">Save</button>
