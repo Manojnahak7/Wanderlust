@@ -102,15 +102,7 @@
       </div>
 
       <div class="menu-content">
-        <a class="nav-link" href="/listings">Explore</a>
-        <a class="nav-link" href="/listings/new">Airbnb your home</a>
-        <% if(!currUser) {%>
-        <a class="nav-link" href="/signup"><b>Sign up</b></a>
-        <a class="nav-link" href="/login"><b>Login</b></a>
-        <% } %> <% if(currUser){ %>
-        <a class="nav-link" href="/logout"><b>Logout</b></a>
-        <% } %>
-        <div class="navbar-nav ms-auto">
+ <div class="navbar-nav ms-auto my-5">
           <form
             class="d-flex"
             id="search-form"
@@ -119,8 +111,8 @@
             action="/listings"
           >
             <input
-              class="form-control searchbar mx-2"
-              style="padding: 0.4rem 2rem 0.4rem 2rem; margin-left: 10px"
+              class="form-control searchbar mx-1"
+              style="padding: 0.4rem 2rem 0.4rem 0.8rem; margin-left: 10px"
               type="search"
               name="search"
               id="search-input"
@@ -128,7 +120,7 @@
               placeholder="Search destination"
             />
             <button
-              class="btn search-btn"
+              class="btn search-btn mx-1"
               type="submit"
               style="padding: 0 0.4rem 0 0.4rem"
             >
@@ -140,6 +132,15 @@
             </button>
           </form>
         </div>
+        <a class="nav-link" href="/listings">Explore</a>
+        <a class="nav-link" href="/listings/new">Airbnb your home</a>
+        <% if(!currUser) {%>
+        <a class="nav-link" href="/signup"><b>Sign up</b></a>
+        <a class="nav-link" href="/login"><b>Login</b></a>
+        <% } %> <% if(currUser){ %>
+        <a class="nav-link" href="/logout"><b>Logout</b></a>
+        <% } %>
+       
       </div>
     </div>
   </div>
