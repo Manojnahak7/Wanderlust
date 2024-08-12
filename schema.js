@@ -9,6 +9,7 @@ const listingSchema = joi.object({
       country: joi.string().required(),
       price: joi.number().required().min(0),
       image: joi.string().allow("", null),
+      contactnumber: joi.string().required().min(1).max(10),
       category: joi
         .string()
         .valid(
