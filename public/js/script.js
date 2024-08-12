@@ -85,49 +85,49 @@ document.getElementById("cross-icon").addEventListener("click", function () {
   document.getElementById("cross-icon").style.display = "none";
 });
 
-//Filters
-const originalListings = Array.from(document.querySelectorAll(".row a"));
+// //Filters
+// const originalListings = Array.from(document.querySelectorAll(".row a"));
 
-const filters = document.querySelectorAll(".filter");
-const trendingFilter = filters[0];
-trendingFilter.classList.add("selected");
+// const filters = document.querySelectorAll(".filter");
+// const trendingFilter = filters[0];
+// trendingFilter.classList.add("selected");
 
-trendingFilter.dispatchEvent(new Event("click"));
+// trendingFilter.dispatchEvent(new Event("click"));
 
-filters.forEach((filter) => {
-  filter.addEventListener("click", () => {
-    const selectedFilter = filter.getAttribute("data-filter");
+// filters.forEach((filter) => {
+//   filter.addEventListener("click", () => {
+//     const selectedFilter = filter.getAttribute("data-filter");
 
-    filters.forEach((f) => f.classList.remove("selected"));
-    filter.classList.add("selected");
+//     filters.forEach((f) => f.classList.remove("selected"));
+//     filter.classList.add("selected");
 
-    const filteredListings = originalListings.filter((anchor) => {
-      const listingCard = anchor.querySelector(".listing-card");
-      const listingCategory = listingCard.getAttribute("data-category");
-      return (
-        selectedFilter === "trending" || listingCategory === selectedFilter
-      );
-    });
+//     const filteredListings = originalListings.filter((anchor) => {
+//       const listingCard = anchor.querySelector(".listing-card");
+//       const listingCategory = listingCard.getAttribute("data-category");
+//       return (
+//         selectedFilter === "trending" || listingCategory === selectedFilter
+//       );
+//     });
 
-    const row = document.querySelector(".row");
-    row.innerHTML = "";
+//     const row = document.querySelector(".row");
+//     row.innerHTML = "";
 
-    filteredListings.forEach((anchor) => {
-      row.appendChild(anchor);
-    });
+//     filteredListings.forEach((anchor) => {
+//       row.appendChild(anchor);
+//     });
 
-    if (filteredListings.length === 0) {
-      const noListingsMessage = document.createElement("div");
-      noListingsMessage.innerHTML = "😞 No listings found!";
-      noListingsMessage.style.textAlign = "center";
-      noListingsMessage.style.fontSize = "24px";
-      noListingsMessage.style.color = "gray";
-      noListingsMessage.style.position = "absolute";
-      noListingsMessage.style.top = "50%";
-      noListingsMessage.style.left = "50%";
-      noListingsMessage.style.transform = "translate(-50%, -50%)";
-      noListingsMessage.style.width = "100%";
-      document.querySelector(".row").appendChild(noListingsMessage);
-    }
-  });
-});
+//     if (filteredListings.length === 0) {
+//       const noListingsMessage = document.createElement("div");
+//       noListingsMessage.innerHTML = "😞 No listings found!";
+//       noListingsMessage.style.textAlign = "center";
+//       noListingsMessage.style.fontSize = "24px";
+//       noListingsMessage.style.color = "gray";
+//       noListingsMessage.style.position = "absolute";
+//       noListingsMessage.style.top = "50%";
+//       noListingsMessage.style.left = "50%";
+//       noListingsMessage.style.transform = "translate(-50%, -50%)";
+//       noListingsMessage.style.width = "100%";
+//       document.querySelector(".row").appendChild(noListingsMessage);
+//     }
+//   });
+// });
