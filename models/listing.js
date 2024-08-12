@@ -70,6 +70,7 @@ const listingSchema = new Schema({
       "domes",
       "boats",
     ],
+    required:true,
   },
 });
 
