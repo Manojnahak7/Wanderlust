@@ -201,6 +201,14 @@ height: 30vh;
   font-size: 1rem;
 }
 
+.filter {
+  cursor: pointer;
+}
+
+.filter.selected {
+  text-decoration: underline;
+}
+
 .tax-toggle {
   border: 1px solid rgb(96, 88, 88);
   height: 2.7rem;
