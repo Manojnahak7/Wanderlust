@@ -128,16 +128,10 @@
 
 
 //Filters
-const originalListings = Array.from(document.querySelectorAll(".row a"));
+ const originalListings = Array.from(document.querySelectorAll(".row a"));
+  const filters = document.querySelectorAll(".filter");
 
-const filters = document.querySelectorAll(".filter");
-const trendingFilter = filters[0];
-trendingFilter.classList.add("selected");
-
-trendingFilter.dispatchEvent(new Event("click"));
-
-filters.forEach((filter) => {
-  filter.addEventListener("click", () => {
+  function applyFilter(filter) {
     const selectedFilter = filter.getAttribute("data-filter");
 
     filters.forEach((f) => f.classList.remove("selected"));
@@ -169,9 +163,19 @@ filters.forEach((filter) => {
       noListingsMessage.style.left = "50%";
       noListingsMessage.style.transform = "translate(-50%, -50%)";
       noListingsMessage.style.width = "100%";
-      document.querySelector(".row").appendChild(noListingsMessage);
+      row.appendChild(noListingsMessage);
     }
+  }
+
+  // Apply the "Trending" filter on page load
+  window.addEventListener("DOMContentLoaded", () => {
+    const trendingFilter = filters[0];
+    applyFilter(trendingFilter);
   });
-});
+
+  // Attach click event to all filters
+  filters.forEach((filter) => {
+    filter.addEventListener("click", () => applyFilter(filter));
+  });
 
 </script>
