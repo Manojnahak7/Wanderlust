@@ -37,8 +37,9 @@
       <div class="mb-3">
         <label for="description" class="form-label">Select new category</label>
         <select name="listingobj[category]" id="category" class="form-control">
-          <option value=""><%=editList.category %></option>
-          <option value="rooms">rooms</option>
+          <option value="<%=editList.category %>" selected>
+            <%=editList.category %>
+          </option>          <option value="rooms">rooms</option>
           <option value="mountains">mountains</option>
           <option value="iconic cities">iconic cities</option>
           <option value="mountain">mountain</option>
