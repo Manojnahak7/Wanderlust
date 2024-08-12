@@ -42,6 +42,12 @@ const listingSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: "User",
   },
+  contactnumber: {
+    type: Number,
+    required: true,
+    min: 1,
+    max: 10,
+  },
   // For filters
 
   category: {
