@@ -81,3 +81,67 @@
   integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
   crossorigin="anonymous"
 ></script>
+
+
+<!-- For small screen -->
+<nav class="navbar bg-body-light border-bottom sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/listings">
+      <i class="fa-solid fa-compass"></i>
+    </a>
+    <div class="hamburger-icon" id="hamburger-icon">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <div class="menu-overlay" id="menu-overlay">
+      <div class="cross-icon" id="cross-icon">
+        <span></span>
+        <span></span>
+      </div>
+
+      <div class="menu-content">
+        <a class="nav-link" href="/listings">Explore</a>
+        <a class="nav-link" href="/listings/new">Airbnb your home</a>
+        <% if(!currUser) {%>
+        <a class="nav-link" href="/signup"><b>Sign up</b></a>
+        <a class="nav-link" href="/login"><b>Login</b></a>
+        <% } %> <% if(currUser){ %>
+        <a class="nav-link" href="/logout"><b>Logout</b></a>
+        <% } %>
+        <div class="navbar-nav ms-auto">
+          <form
+            class="d-flex"
+            id="search-form"
+            role="search"
+            method="get"
+            action="/listings"
+          >
+            <input
+              class="form-control searchbar mx-2"
+              style="padding: 0.4rem 2rem 0.4rem 2rem; margin-left: 10px"
+              type="search"
+              name="search"
+              id="search-input"
+              value="<%= search %>"
+              placeholder="Search destination"
+            />
+            <button
+              class="btn search-btn"
+              type="submit"
+              style="padding: 0 0.4rem 0 0.4rem"
+            >
+              <i
+                class="fa-solid fa-magnifying-glass"
+                style="font-size: 1rem"
+              ></i
+              >Search
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
