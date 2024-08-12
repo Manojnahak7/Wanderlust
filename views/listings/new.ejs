@@ -130,8 +130,9 @@
               name="listingobj[contactnumber]"
               placeholder="Enter contact number"
               class="form-control"
-              minlength="1"
               maxlength="10"
+              pattern="\d{10}"
+              oninput="validateContactNumber(this)"
               required
             />
             <!-- <div class="valid-feedback">Location Looks Good</div> -->
