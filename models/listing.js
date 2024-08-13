@@ -55,7 +55,6 @@ const listingSchema = new Schema({
       "rooms",
       "mountains",
       "iconic cities",
-      "mountain",
       "castles",
       "amazing pool",
       "camping",
