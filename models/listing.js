@@ -15,13 +15,7 @@ const listingSchema = new Schema({
   image: {
     url: String,
     filename: String,
-    // type: String,
-    // default:
-    //   "https://housing-images.n7net.in/4f2250e8/4361da1e71fcb4f4167eb0ec299c9717/v0/medium/dn_yoo_odisha-gajapati_nagar-bhubaneswar-dnhomes.jpeg",
-    // set: (v) =>
-    //   v === ""
-    //     ? "https://housing-images.n7net.in/4f2250e8/4361da1e71fcb4f4167eb0ec299c9717/v0/medium/dn_yoo_odisha-gajapati_nagar-bhubaneswar-dnhomes.jpeg"
-    //     : v,
+   
   },
   price: {
     type: Number,
