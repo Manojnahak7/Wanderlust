@@ -24,21 +24,7 @@ router
     }),
     usersController.login
   );
-// router.get("/signup", usersController.renderSignupform);
 
-// router.post("/signup", wrapAsync(usersController.signup));
-
-// router.get("/login", usersController.renderLoginform);
-
-// router.post(
-//   "/login",
-//   saveRedirectUrl,
-//   passport.authenticate("local", {
-//     failureRedirect: "/login",
-//     failureFlash: true,
-//   }),
-//   usersController.login
-// );
 
 router.get("/logout", usersController.logout);
 module.exports = router;
