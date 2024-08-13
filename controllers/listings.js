@@ -5,7 +5,6 @@ module.exports.index = async (req, res) => {
   // For Search Functionality
   const { search } = req.query;
 
-  // Default to an empty string if no search query is provided
   const searchQuery = search || "";
 
   let query = {};
@@ -25,7 +24,6 @@ module.exports.index = async (req, res) => {
     };
   }
 
-  // const allListing = await listing.find({});
   const allListing = await listing.find(query);
 
   res.render("./listings/index.ejs", { allListing, search: searchQuery });
