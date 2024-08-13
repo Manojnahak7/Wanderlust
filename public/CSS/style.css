@@ -38,10 +38,6 @@ body{
   flex-wrap: wrap;
   justify-content: center;
 align-items: space-evenly;
-/* position: fixed;
-bottom: 0; */
-/* width: 100%; */
-
 }
 
 .f-info-links{
