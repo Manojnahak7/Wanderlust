@@ -1,11 +1,9 @@
-// Example starter JavaScript for disabling form submissions if there are invalid fields
+// For bootstrap validation
 (() => {
   "use strict";
 
-  // Fetch all the forms we want to apply custom Bootstrap validation styles to
   const forms = document.querySelectorAll(".needs-validation");
 
-  // Loop over them and prevent submission
   Array.from(forms).forEach((form) => {
     form.addEventListener(
       "submit",
@@ -32,14 +30,14 @@ document.addEventListener("DOMContentLoaded", () => {
   searchInput.addEventListener("input", function () {
     const query = this.value.trim();
     if (query === "") {
-      autocompleteContainer.innerHTML = ""; // Clear suggestions
+      autocompleteContainer.innerHTML = ""; 
       return;
     }
 
     fetch(`/search?query=${encodeURIComponent(query)}`)
       .then((response) => response.json())
       .then((data) => {
-        autocompleteContainer.innerHTML = ""; // Clear previous suggestions
+        autocompleteContainer.innerHTML = ""; 
         data.results.forEach((item) => {
           const div = document.createElement("div");
           div.className = "autocomplete-item";
@@ -52,7 +50,6 @@ document.addEventListener("DOMContentLoaded", () => {
       });
   });
 
-  // Hide autocomplete when clicking outside
   document.addEventListener("click", (event) => {
     if (
       !autocompleteContainer.contains(event.target) &&
