@@ -43,6 +43,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
 app.engine("ejs", ejsMate);
 app.use(express.static(path.join(__dirname, "public")));
+app.use("/uploads", express.static("uploads"));
+
 app.listen(3030, () => {
   console.log("App is running on port 3030");
 });
