@@ -1,14 +1,22 @@
 const User = require("../models/user");
+
 module.exports.renderSignupform = (req, res) => {
-  res.render("./users/signup.ejs");
+  res.render("users/signup.ejs");
 };
 
-module.exports.signup = async (req, res) => {
+module.exports.signup = async (req, res, next) => {
   try {
-    let { username, email, password } = req.body;
-    const newUser = new User({ email, username });
+    const { username, email, password } = req.body;
+    const image = req.file ? req.file.filename : null;
+
+    const newUser = new User({
+      email,
+      username,
+      image,
+    });
+
     const registeredUser = await User.register(newUser, password);
-    console.log(registeredUser);
+
     req.login(registeredUser, (err) => {
       if (err) {
         return next(err);
@@ -16,8 +24,6 @@ module.exports.signup = async (req, res) => {
       req.flash("success", "Welcome to Wonderlust");
       res.redirect("/listings");
     });
-    // req.flash("success", "Welcome to Wonderlust");
-    // res.redirect("/listings");
   } catch (e) {
     req.flash("error", e.message);
     res.redirect("/signup");
@@ -30,7 +36,6 @@ module.exports.renderLoginform = (req, res) => {
 
 module.exports.login = async (req, res) => {
   req.flash("success", "Welcome back to Wonderlust!");
-  // res.redirect("/listings");
   let redirectUrl = res.locals.redirectUrl || "/listings";
   res.redirect(redirectUrl);
 };
@@ -44,3 +49,4 @@ module.exports.logout = (req, res, next) => {
     res.redirect("/listings");
   });
 };
+
