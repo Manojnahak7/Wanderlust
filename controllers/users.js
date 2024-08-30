@@ -9,18 +9,23 @@ module.exports.signup = async (req, res, next) => {
     const { username, email, password } = req.body;
     const image = req.file ? req.file.filename : null;
 
-    const newUser = new User({
-      email,
-      username,
-      image,
-    });
+    const existingUser = await User.findOne({ username });
+    if (existingUser) {
+      req.flash("error", "Username already taken. Please choose another.");
+      return res.redirect("/signup");
+    }
 
+    const existingEmail = await User.findOne({ email });
+    if (existingEmail) {
+      req.flash("error", "Email already registered. Please use another.");
+      return res.redirect("/signup");
+    }
+
+    const newUser = new User({ email, username, image });
     const registeredUser = await User.register(newUser, password);
 
     req.login(registeredUser, (err) => {
-      if (err) {
-        return next(err);
-      }
+      if (err) return next(err);
       req.flash("success", "Welcome to Wonderlust");
       res.redirect("/listings");
     });
@@ -42,11 +47,8 @@ module.exports.login = async (req, res) => {
 
 module.exports.logout = (req, res, next) => {
   req.logout((err) => {
-    if (err) {
-      return next(err);
-    }
+    if (err) return next(err);
     req.flash("success", "Logged You Out!");
     res.redirect("/listings");
   });
 };
-
