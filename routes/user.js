@@ -1,17 +1,30 @@
 const express = require("express");
 const router = express.Router();
-const User = require("../models/user.js");
+const multer = require("multer");
+const path = require("path");
 const wrapAsync = require("../utils/wrapAsync.js");
 const passport = require("passport");
-const { saveRedirectUrl } = require("../middleware.js");
 const usersController = require("../controllers/users.js");
+const { saveRedirectUrl } = require("../middleware.js");
 
-//Router Route
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    const uploadPath = path.join(__dirname, "../uploads");
+  },
+  filename: (req, file, cb) => {
+    cb(null, Date.now() + path.extname(file.originalname));
+  },
+});
 
-router
-  .route("/signup")
-  .get(usersController.renderSignupform)
-  .post(wrapAsync(usersController.signup));
+const upload = multer({ storage });
+
+router.post(
+  "/signup",
+  upload.single("image"),
+  wrapAsync(usersController.signup)
+);
+
+router.get("/signup", usersController.renderSignupform);
 
 router
   .route("/login")
@@ -25,6 +38,7 @@ router
     usersController.login
   );
 
-
 router.get("/logout", usersController.logout);
+
 module.exports = router;
+
