@@ -15,7 +15,7 @@
     <div class="card-body">
          <p class="card-text">
            <% if (showall.owner.image) { %>
-               <img src="/uploads/<%= showall.owner.image %>" alt="<%= showall.owner.username %>'s profile picture" class="rounded-circle" style="width: 30px; height: 30px; object-fit: cover;" />
+               <img src="./uploads/<%= showall.owner.image %>" alt="<%= showall.owner.username %>'s profile picture" class="rounded-circle" style="width: 30px; height: 30px; object-fit: cover;" />
 
               <% } else { %>
                 <i class="fa-solid fa-user"></i>
