@@ -14,13 +14,20 @@
     />
     <div class="card-body">
          <p class="card-text">
-           <% if (showall.owner.image) { %>
-               <img src="./uploads/<%= showall.owner.image %>" alt="<%= showall.owner.username %>'s profile picture" class="rounded-circle" style="width: 30px; height: 30px; object-fit: cover;" />
-
+            <h6 class="text-primary">
+              <% if (showall.owner.image) { %>
+                <img 
+                  src="<%= showall.owner.image %>" 
+                  alt="<%= showall.owner.username %>'s profile picture" 
+                  class="rounded-circle" 
+                  style="width: 30px; height: 30px; object-fit: cover;"
+                />
               <% } else { %>
                 <i class="fa-solid fa-user"></i>
               <% } %>
-              &nbsp; <i>Owned By <%= showall.owner.username %></i> </p>
+              &nbsp; <i>Owned By <%= showall.owner.username %></i>
+            </h6>
+          </p>
           <p class="card-text">
             <%=showall.description%> </p>
             <p class="card-text">
